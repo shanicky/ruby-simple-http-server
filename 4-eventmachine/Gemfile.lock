@@ -1,0 +1,14 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    eventmachine (1.0.3)
+    eventmachine_httpserver (0.2.1)
+    mime-types (1.25)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  eventmachine (~> 1.0.3)
+  eventmachine_httpserver (~> 0.2.1)
+  mime-types (~> 1.25)
