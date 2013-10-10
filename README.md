@@ -1,5 +1,7 @@
 ## There 4 simple http servers for file serving
 
+tested on mri 2.0.0
+
 almost useless bench on localhost:
 ```
 server             rps
@@ -92,7 +94,7 @@ ab -c 100 -n 10000 "http://127.0.0.1:8081/Pictures/1.jpg"
 
 Server Software:
 Server Hostname:        127.0.0.1
-Server Port:            8085
+Server Port:            8084
 
 Document Path:          /
 Document Length:        15 bytes
