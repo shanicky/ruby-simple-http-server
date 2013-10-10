@@ -1,6 +1,6 @@
 ## There 4 simple http servers for file serving
 
-tested on mri 2.0.0
+Tested on mri 2.0.0. Usage: ```ruby ws.rb --public <directory> --port <port>```.
 
 almost useless bench on localhost:
 ```
