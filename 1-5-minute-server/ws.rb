@@ -1,5 +1,5 @@
 require 'webrick'
-require_relative '../opts.rb'
+require '../opts'
 
 include WEBrick
 

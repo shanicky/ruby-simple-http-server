@@ -4,7 +4,7 @@ require 'eventmachine'
 require 'evma_httpserver'
 require 'mime/types'
 
-require '../opts.rb'
+require '../opts'
 
 $config = getopts
 

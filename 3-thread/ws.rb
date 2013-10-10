@@ -3,7 +3,7 @@ require 'bundler/setup'
 
 require 'mime/types'
 
-require '../opts.rb'
+require '../opts'
 require './server'
 
 $config = getopts

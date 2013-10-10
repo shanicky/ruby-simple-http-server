@@ -3,11 +3,9 @@ require 'socket'
 require './request'
 require './response'
 
-require '../log.rb'
+require '../log'
 
 class Server
-  attr_accessor :socket, :request
-
   class << self
     def log_request(request, response)
       req_line = request.request_line
@@ -18,7 +16,7 @@ class Server
       end
     end
 
-    def answer(socket, request, response)
+    def send_response(socket, request, response)
       begin
         log_request(request, response)
 
@@ -42,19 +40,18 @@ class Server
   def run
     Log.info "Starting server: http://#{@host}:#{@port}"
     tcp_server = TCPServer.new @host, @port
-    handler = @handler
 
     loop do
-      Thread.new(self, tcp_server.accept) do |server, socket|
+      Thread.new(tcp_server.accept) do |socket|
         begin
           request = Request.new(socket.gets.to_s.chomp)
           response = if request.processable?
-                       handler.process request
+                       @handler.process request
                      else
                        Response.new 400, "Bad request\n"
                      end
 
-          Server.answer(socket, request, response)
+          Server.send_response(socket, request, response)
         rescue Exception => ex
           Log.error "#{ex.class}: #{ex.message}\n\t" << ex.backtrace.join("\n\t") << "\n"
         ensure

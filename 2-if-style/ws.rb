@@ -7,8 +7,8 @@ require 'stringio'
 
 require 'mime/types'
 
-require_relative '../log.rb'
-require_relative '../opts.rb'
+require '../log'
+require '../opts'
 
 
 STATUS_CODES = {
